@@ -1,0 +1,186 @@
+<html>
+
+<head>
+
+<title>validating form</title>
+
+<script>
+
+function validate()
+{
+
+var name=document.forms["frm"]["name"].value;
+var contact=document.forms["frm"]["contact"].value;
+
+var email=document.forms["frm"]["mail"].value;
+
+var date=document.forms["frm"]["date"].value;
+var gender=document.forms["frm"]["gender"].value;
+var password=document.forms["frm"]["password"].value;
+var cpass = document.forms["frm"]["repassword"].value;
+var phoneno=/^\d{10}$/;
+mailformat=/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+
+if(name=="")
+{
+
+alert("Name cannot be empty");
+return false;
+}
+if(date=="")
+{
+
+    alert("Please enter a valid date");
+    return false;
+}
+
+if(email=="")
+{
+    
+    alert("Email cannot be empty");
+    
+    return false;
+
+}
+else if(!(email.match(mailformat)))
+{
+    
+    alert("Invalid email id");
+    
+    return false;
+    
+}
+
+if(password=="")
+{
+    
+    alert("Password cannot be empty");
+    return false;
+    
+}
+if(cpass=="")
+{
+    alert("Please confirm the password");
+    return false;
+}
+else
+{
+    if(password !=cpass)
+    {
+        alert("Passwords does not match");
+        return false;
+    }
+}
+
+
+if(gender=="")
+{
+    
+    alert("gender cannot be empty");
+    
+    return false;
+    
+}
+if(contact=="")
+{
+
+alert("Contact cannot be empty");
+
+return false;
+
+}
+
+else if(!(contact.match(phoneno)))
+{
+
+alert("Invalid contact number");
+
+return false;
+
+}
+else
+alert("succesfully submitted");
+}
+
+</script>
+
+</head>
+
+<body>
+    <center>
+        <b>REGISTRATION FORM</b>
+        <form name="frm" onsubmit="return validate()">
+
+        <table border="2" cellpadding="10">
+            
+<b><tr>
+    
+    <td>NAME</td>
+	
+    <td><input type="text" NAME="name"></td>
+    
+</tr>
+<br><br>
+
+<tr>
+	
+<td>DATE OF BIRTH</td>
+
+<td> <input type="date" name="date"></td>
+</tr>
+
+<tr>
+	
+<td>EMAIL ID</td>
+
+<TD><input type="email" name="mail"><br><br>
+
+</TD>
+
+</tr>
+<tr>
+	
+<td>PASSWORD</td>
+	
+<td><input type="password" name="password"><br><br></td>
+
+</tr>
+<tr>
+	
+<td>RETYPE PASSWORD</td>
+
+<td><input type="password" name="repassword"><br><br>
+</td>
+</tr>
+
+<tr><td>GENDER</td>
+<td><input type="radio" name="gender">MALE<br>
+<input type="radio" name="gender">FEMALE<br>
+<input type="radio" name="gender">TRANS</td><br><br>
+</tr>
+<tr>
+<td>MOBILE NUMBER</td>
+<td><input type="text" name="contact" maxlength="10"></td><br><br>
+</tr>
+<tr>
+<td>HOBBIES</td>
+<td>
+<input type="checkbox" name="hobbies">DRAWING<br>
+<input type="checkbox" name="hobbies">SINGING<br>
+<input type="checkbox" name="hobbies">DANCING<br>
+<input type="checkbox" name="hobbies">SKETCHING<br>
+OTHERS<input type="text" name="hobbies"></td>
+</tr>
+</b>
+
+</form>
+</table><br><br>
+<input type="submit" value="submit">
+
+<input type="reset" value="reset">
+
+</center>
+
+</body>
+
+</html>
